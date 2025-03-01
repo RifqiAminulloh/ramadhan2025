@@ -5,47 +5,60 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kalender Ramadhan 2025 - Desti Mandanti</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 </head>
 <body>
-  <header>
-    <h1>Desti Mandanti ✨</h1>
-    <p class="romantic-text">Semangat Ramadhan ini sayang, aku cinta aku my boney honey lovey! 💖</p>
+  <!-- Header Romantis -->
+  <header class="header">
+    <h1 class="animate__animated animate__fadeIn">Desti Mandanti</h1>
+    <p class="animate__animated animate__fadeIn animate__delay-1s">Semangat Ramadhan ini sayang, aku cinta aku my boney honey lovey! 💖</p>
+    <div class="animasi">
+      <span class="bulan">🌙</span>
+      <span class="hati">💖</span>
+    </div>
   </header>
 
-  <section class="daily-info">
-    <p>Hari ini: <span id="current-date"></span></p>
-    <p>Puasa ke-<span id="fasting-day"></span></p>
-    <p>Waktu Sholat Hari Ini:</p>
-    <ul>
-      <li>Imsak: <span id="imsak-time"></span></li>
-      <li>Subuh: <span id="subuh-time"></span></li>
-      <li>Maghrib: <span id="maghrib-time"></span></li>
-    </ul>
-    <p id="checklist-status"></p>
-  </section>
-
-  <section class="calendar">
-    <div class="calendar-header">
-      <button id="prev-month">‹</button>
-      <h2 id="current-month"></h2>
-      <button id="next-month">›</button>
+  <!-- Informasi Harian -->
+  <section class="info-harian">
+    <div class="tanggal">
+      <span id="tanggal-masehi">📅 Sabtu, 15 Maret 2025</span>
+      <span id="tanggal-hijriyah">13 Ramadhan 1446 H</span>
     </div>
-    <div class="calendar-grid" id="calendar-grid"></div>
+    <div class="puasa">
+      <span id="hari-puasa">🔢 Hari ke-13 Puasa</span>
+    </div>
+    <div class="jadwal-sholat">
+      <h3>🕌 Jadwal Sholat Hari Ini</h3>
+      <ul>
+        <li>Imsak: <span id="imsak">04:29 WIB</span></li>
+        <li>Subuh: <span id="subuh">04:39 WIB</span></li>
+        <li>Dzuhur: <span id="dzuhur">12:04 WIB</span></li>
+        <li>Ashar: <span id="ashar">15:08 WIB</span></li>
+        <li>Maghrib: <span id="maghrib">18:11 WIB</span></li>
+        <li>Isya: <span id="isya">19:22 WIB</span></li>
+      </ul>
+    </div>
   </section>
 
-  <div class="modal" id="todo-modal">
-    <h2>To-Do List Harian - <span id="modal-date"></span></h2>
-    <ul>
-      <li><input type="checkbox" id="ngaji"> Ngaji 📖</li>
-      <li><input type="checkbox" id="sholat"> Sholat Wajib 🕌</li>
-      <li><input type="checkbox" id="tarawih"> Tarawih 🌙</li>
-      <li><input type="checkbox" id="tahajud"> Tahajud ✨</li>
-    </ul>
-    <button onclick="closeModal()">Tutup</button>
-  </div>
+  <!-- Kalender Ramadhan 2025 -->
+  <section class="kalender">
+    <h2>Kalender Ramadhan 1446 H / Maret 2025</h2>
+    <div class="kalender-grid" id="kalender-grid">
+      <!-- Tanggal akan diisi oleh JavaScript -->
+    </div>
+  </section>
 
+  <!-- To-Do List Harian -->
+  <section class="todo-list" id="todo-list">
+    <h2>To-Do List Harian</h2>
+    <ul id="todo-items">
+      <!-- Checklist akan diisi oleh JavaScript -->
+    </ul>
+  </section>
+
+  <!-- Footer -->
   <footer>
-    <p id="quote"></p>
+    <p>Dibuat dengan ❤️ oleh [Nama Anda] untuk Desti Mandanti</p>
   </footer>
 
   <script src="script.js"></script>
