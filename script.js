@@ -2,11 +2,14 @@
 const ramadhanDates = [
   { gregorian: "2025-03-01", hijri: "1446-01-01", imsak: "04:30", subuh: "04:40", maghrib: "18:10" },
   { gregorian: "2025-03-02", hijri: "1446-01-02", imsak: "04:29", subuh: "04:39", maghrib: "18:10" },
+  { gregorian: "2025-03-03", hijri: "1446-01-03", imsak: "04:28", subuh: "04:38", maghrib: "18:10" },
+  { gregorian: "2025-03-04", hijri: "1446-01-04", imsak: "04:27", subuh: "04:37", maghrib: "18:10" },
+  { gregorian: "2025-03-05", hijri: "1446-01-05", imsak: "04:26", subuh: "04:36", maghrib: "18:10" },
   // Tambahkan tanggal lainnya sampai 31 Maret 2025
 ];
 
 // Tanggal haid (1-4 Maret 2025 dan prediksi 28 hari setelahnya)
-const haidDates = ["2025-03-01", "2025-03-02", "2025-03-03", "2025-03-04", "2025-03-29", "2025-03-30", "2025-03-31"];
+const haidDates = ["2025-03-01", "2025-03-02", "2025-03-03", "2025-03-04"];
 
 // Quotes Islami
 const quotes = [
@@ -66,8 +69,6 @@ function updateDailyInfo() {
 }
 
 // Inisialisasi
-document.addEventListener('DOMContentLoaded', () => {
-  renderCalendar();
-  showRandomQuote();
-  updateDailyInfo();
-});
+renderCalendar();
+showRandomQuote();
+updateDailyInfo();
