@@ -105,6 +105,19 @@ body {
   color: white;
 }
 
+/* Highlight Hari Ini */
+.hari-ini {
+  background-color: #ff9a9e;
+  color: white;
+  font-weight: bold;
+}
+
+/* Hari Haid */
+.hari-haid {
+  background-color: #ff6b6b;
+  color: white;
+}
+
 /* To-Do List */
 .todo-list {
   padding: 20px;
