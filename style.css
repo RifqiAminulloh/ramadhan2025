@@ -1,0 +1,66 @@
+/* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(45deg, #f9d1d1, #a2d9f9);
+  color: #333;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+header {
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  margin: 20px;
+  position: relative;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.romantic-text {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+.animations {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.hearts, .moon, .clouds {
+  position: absolute;
+  font-size: 1.5rem;
+  animation: float 5s infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+  padding: 20px;
+}
+
+.date {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.date:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.
