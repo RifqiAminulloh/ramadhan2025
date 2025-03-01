@@ -1,74 +1,57 @@
-// Data Kalender Ramadhan 2025 (1 Maret - 31 Maret 2025)
-const ramadhanDates = [
-  { gregorian: "2025-03-01", hijri: "1446-01-01", imsak: "04:30", subuh: "04:40", maghrib: "18:10" },
-  { gregorian: "2025-03-02", hijri: "1446-01-02", imsak: "04:29", subuh: "04:39", maghrib: "18:10" },
-  { gregorian: "2025-03-03", hijri: "1446-01-03", imsak: "04:28", subuh: "04:38", maghrib: "18:10" },
-  { gregorian: "2025-03-04", hijri: "1446-01-04", imsak: "04:27", subuh: "04:37", maghrib: "18:10" },
-  { gregorian: "2025-03-05", hijri: "1446-01-05", imsak: "04:26", subuh: "04:36", maghrib: "18:10" },
-  // Tambahkan tanggal lainnya sampai 31 Maret 2025
+// Data Jadwal Sholat (Contoh)
+const jadwalSholat = {
+  "15 Maret 2025": {
+    imsak: "04:29",
+    subuh: "04:39",
+    dzuhur: "12:04",
+    ashar: "15:08",
+    maghrib: "18:11",
+    isya: "19:22"
+  }
+};
+
+// Data Kalender Ramadhan 2025
+const kalenderRamadhan = [
+  { hari: "Sabtu", tanggalMasehi: "1 Maret 2025", tanggalHijriyah: "1 Ramadhan 1446 H" },
+  { hari: "Minggu", tanggalMasehi: "2 Maret 2025", tanggalHijriyah: "2 Ramadhan 1446 H" },
+  // ... (lanjutkan sampai 31 Maret 2025)
 ];
 
-// Tanggal haid (1-4 Maret 2025 dan prediksi 28 hari setelahnya)
-const haidDates = ["2025-03-01", "2025-03-02", "2025-03-03", "2025-03-04"];
-
-// Quotes Islami
-const quotes = [
-  "Ramadhan bukan hanya tentang puasa, tapi tentang hati yang lebih dekat dengan-Nya.",
-  "Hari ini adalah kesempatan baru untuk menjadi lebih baik."
+// Data To-Do List Default
+const todoListDefault = [
+  { task: "Ngaji 📖", completed: false },
+  { task: "Sholat Wajib 🕌", completed: false },
+  { task: "Tarawih 🕋", completed: false },
+  { task: "Tahajud 🌙", completed: false },
+  { task: "Sedekah 💰", completed: false }
 ];
 
 // Fungsi untuk menampilkan kalender
-function renderCalendar() {
-  const calendarGrid = document.getElementById('calendar-grid');
-  calendarGrid.innerHTML = '';
-  ramadhanDates.forEach(date => {
-    const dateElement = document.createElement('div');
-    dateElement.className = 'date';
-    if (haidDates.includes(date.gregorian)) {
-      dateElement.classList.add('haid');
-    }
-    dateElement.innerHTML = `
-      <span class="gregorian">${date.gregorian.split('-')[2]}</span>
-      <span class="hijri">${date.hijri.split('-')[2]}</span>
-    `;
-    dateElement.addEventListener('click', () => openModal(date));
-    calendarGrid.appendChild(dateElement);
+function renderKalender() {
+  const kalenderGrid = document.getElementById("kalender-grid");
+  kalenderRamadhan.forEach((tanggal) => {
+    const div = document.createElement("div");
+    div.textContent = `${tanggal.tanggalMasehi}\n${tanggal.tanggalHijriyah}`;
+    kalenderGrid.appendChild(div);
   });
 }
 
-// Fungsi untuk menampilkan modal To-Do List
-function openModal(date) {
-  const modal = document.getElementById('todo-modal');
-  const modalDate = document.getElementById('modal-date');
-  modalDate.innerText = date.gregorian;
-  modal.style.display = 'block';
-}
-
-function closeModal() {
-  document.getElementById('todo-modal').style.display = 'none';
-}
-
-// Fungsi untuk menampilkan quotes random
-function showRandomQuote() {
-  const quoteElement = document.getElementById('quote');
-  const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-  quoteElement.innerText = randomQuote;
-}
-
-// Fungsi untuk menampilkan informasi harian
-function updateDailyInfo() {
-  const today = new Date().toISOString().split('T')[0];
-  const todayData = ramadhanDates.find(date => date.gregorian === today);
-  if (todayData) {
-    document.getElementById('current-date').innerText = todayData.gregorian;
-    document.getElementById('fasting-day').innerText = ramadhanDates.indexOf(todayData) + 1;
-    document.getElementById('imsak-time').innerText = todayData.imsak;
-    document.getElementById('subuh-time').innerText = todayData.subuh;
-    document.getElementById('maghrib-time').innerText = todayData.maghrib;
-  }
+// Fungsi untuk menampilkan To-Do List
+function renderTodoList() {
+  const todoItems = document.getElementById("todo-items");
+  todoListDefault.forEach((item) => {
+    const li = document.createElement("li");
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.checked = item.completed;
+    li.appendChild(checkbox);
+    li.appendChild(document.createTextNode(item.task));
+    todoItems.appendChild(li);
+  });
 }
 
 // Inisialisasi
-renderCalendar();
-showRandomQuote();
-updateDailyInfo();
+document.addEventListener("DOMContentLoaded", () => {
+  renderKalender();
+  renderTodoList();
+});
