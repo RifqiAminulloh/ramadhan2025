@@ -17,6 +17,7 @@ const quotes = [
 // Fungsi untuk menampilkan kalender
 function renderCalendar() {
   const calendarGrid = document.getElementById('calendar-grid');
+  calendarGrid.innerHTML = '';
   ramadhanDates.forEach(date => {
     const dateElement = document.createElement('div');
     dateElement.className = 'date';
