@@ -12,8 +12,11 @@ const jadwalSholat = {
 
 // Data Kalender Ramadhan 2025
 const kalenderRamadhan = [
-  { hari: "Sabtu", tanggalMasehi: "1 Maret 2025", tanggalHijriyah: "1 Ramadhan 1446 H" },
-  { hari: "Minggu", tanggalMasehi: "2 Maret 2025", tanggalHijriyah: "2 Ramadhan 1446 H" },
+  { hari: "Sabtu", tanggalMasehi: "1 Maret 2025", tanggalHijriyah: "1 Ramadhan 1446 H", haid: true },
+  { hari: "Minggu", tanggalMasehi: "2 Maret 2025", tanggalHijriyah: "2 Ramadhan 1446 H", haid: true },
+  { hari: "Senin", tanggalMasehi: "3 Maret 2025", tanggalHijriyah: "3 Ramadhan 1446 H", haid: true },
+  { hari: "Selasa", tanggalMasehi: "4 Maret 2025", tanggalHijriyah: "4 Ramadhan 1446 H", haid: true },
+  { hari: "Rabu", tanggalMasehi: "5 Maret 2025", tanggalHijriyah: "5 Ramadhan 1446 H", haid: false },
   // ... (lanjutkan sampai 31 Maret 2025)
 ];
 
@@ -32,6 +35,12 @@ function renderKalender() {
   kalenderRamadhan.forEach((tanggal) => {
     const div = document.createElement("div");
     div.textContent = `${tanggal.tanggalMasehi}\n${tanggal.tanggalHijriyah}`;
+    if (tanggal.haid) {
+      div.classList.add("hari-haid");
+    }
+    if (tanggal.tanggalMasehi === "15 Maret 2025") { // Contoh hari ini
+      div.classList.add("hari-ini");
+    }
     kalenderGrid.appendChild(div);
   });
 }
