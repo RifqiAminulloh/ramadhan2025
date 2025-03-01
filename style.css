@@ -73,7 +73,7 @@ h1 {
 }
 
 .date.haid {
-  background: #ffcccc;
+  background: #ffcccc;  /* Highlight haid dates */
 }
 
 .modal {
